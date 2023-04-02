@@ -1,7 +1,7 @@
 from abc import ABC
-from helpers.errors.domain_errors import EntityError
-from enums.type_crime_enum import TYPE_CRIME
-from entities.criminal_entity import Criminal
+from src.shared.helpers.errors.domain_errors import EntityError
+from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
+from src.shared.domain.entities.criminal_entity import Criminal
 
 
 class CriminalRecord(ABC):
@@ -27,3 +27,7 @@ class CriminalRecord(ABC):
         if type(danger_score) != int:
             raise EntityError("danger_score")
         self.danger_score = danger_score
+
+        if type(criminal) != Criminal:
+            raise EntityError("criminal")
+        self.criminal = criminal
