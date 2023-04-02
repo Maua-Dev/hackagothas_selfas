@@ -1,7 +1,7 @@
 from abc import ABC
-from helpers.errors.domain_errors import EntityError
-from enums.gender_enum import GENDER
-from enums.favorite_region_enum import FAVORITE_REGION
+from src.shared.helpers.errors.domain_errors import EntityError
+from src.shared.domain.enums.gender_enum import GENDER
+from src.shared.domain.enums.favorite_region_enum import FAVORITE_REGION
 
 
 class Criminal(ABC):
