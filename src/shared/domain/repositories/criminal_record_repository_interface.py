@@ -1,10 +1,9 @@
 from abc import ABC, abstractmethod
 from shared.domain.entities.criminal_record_entity import CriminalRecord
-from shared.domain.entities.criminal_entity import Criminal
 
 
-class ICriminalRepository(ABC):
+class ICriminalRecordRepository(ABC):
 
     @abstractmethod
-    def create_criminal_record(self, criminal: Criminal) -> CriminalRecord:
+    def create_criminal_record(self, criminal_record: CriminalRecord) -> CriminalRecord:
         pass
