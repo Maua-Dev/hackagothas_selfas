@@ -1,15 +1,15 @@
 from src.shared.domain.repositories.criminal_record_repository_interface import ICriminalRecordRepository
 from src.shared.domain.entities.criminal_record_entity import CriminalRecord
-from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
-from src.shared.domain.entities.criminal_entity import Criminal
 from src.shared.helpers.errors.domain_errors import EntityError
 
 
 class CreateCriminalRecordUseCase:
-    def __init__(self, repo : ICriminalRecordRepository):
-        self.repo = repo
+    def __init__(self, repo_criminal_record : ICriminalRecordRepository):
+        self.repo_criminal_record = repo_criminal_record
 
-    def __call__(self, id: str, type_crime: TYPE_CRIME, is_in_jail: bool, danger_score:int, criminal: Criminal) -> CriminalRecord:
-            
+    def __call__(self, danger_score:int, criminal_record: CriminalRecord) -> CriminalRecord:
+
         if not CriminalRecord.validade_danger_score(danger_score):
             raise EntityError("danger_score")
+        
+        return self.repo_criminal_record.create_criminal_record(criminal_record=criminal_record)
