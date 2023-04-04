@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from shared.domain.entities.criminal_record_entity import CriminalRecord
+from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 
 
 class ICriminalRecordRepository(ABC):

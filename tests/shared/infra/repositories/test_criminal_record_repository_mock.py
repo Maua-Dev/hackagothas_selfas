@@ -1,8 +1,8 @@
+import pytest
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
 
-
-class Teste_CriminalRecordRepositoryMock:
-    def teste_create_criminal_record(self):
+class Test_CriminalRecordRepositoryMock:
+    def test_create_criminal_record(self):
         repo = CriminalRecordRepositoryMock()
 
         length_before = len(repo.criminal_records)
