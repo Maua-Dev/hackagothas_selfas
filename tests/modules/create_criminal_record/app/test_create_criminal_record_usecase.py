@@ -9,22 +9,24 @@ class Test_CreateCriminalRecordUsecase:
         
         repo = CriminalRecordRepositoryMock()
 
-        usecase = CreateCriminalRecordUsecase(repo)
+        createUsecase = CreateCriminalRecordUsecase(repo)
 
-        usecase(repo.criminal_records[0].danger_score, repo.criminal_records[0])
+        length_before = len(repo.criminal_records)
+
 
         criminal_record = CriminalRecord(id="jdiashq", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,
                            is_in_jail=False, danger_score=94, criminal=repo.criminals[0])
-        
-        length_before = len(repo.criminal_records)
 
-        criminal_record_response = usecase(criminal_record=criminal_record)
+
+        createUsecase(repo.criminal_records[0].danger_score, criminal_record) #Adicionando ficha no banco de dados
+
+        criminal_record_response = repo.criminal_records[-1]
 
         length_after = len(repo.criminal_records)
 
-        assert length_after == length_before + 1
+        assert length_after == length_before + 1 #Vendo se a quantidade de fichas no banco aumento de vdd
         
-        assert criminal_record_response == criminal_record
+        assert criminal_record_response == criminal_record #Vendo se o ultimo item adicionado é o item esperado
 
     # def test_create_criminal_record_usecase_criminal_record_id_already_exists(self):
     #     repo = CriminalRecordRepositoryMock()
