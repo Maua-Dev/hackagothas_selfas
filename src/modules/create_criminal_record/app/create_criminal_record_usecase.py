@@ -3,7 +3,7 @@ from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.helpers.errors.domain_errors import EntityError
 
 
-class CreateCriminalRecordUseCase:
+class CreateCriminalRecordUsecase:
     def __init__(self, repo_criminal_record : ICriminalRecordRepository):
         self.repo_criminal_record = repo_criminal_record
 
