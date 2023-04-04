@@ -37,10 +37,20 @@ class Criminal(ABC):
             raise EntityError("powers")
         self.powers = powers
 
-        @staticmethod
-        def validate_name(name:str) -> bool:
-            if(type(name)!=str):
-                return False
-            if(len(name) < 2):
-                return False
-            return True
+    @staticmethod
+    def validate_name(name: str) -> bool:
+        if (type(name) != str):
+            return False
+        if (len(name) < 2):
+            return False
+        return True
+
+    def get_view_model(self):
+        return {
+            "name": self.name,
+            "id": self.id,
+            "description": self.description,
+            "gender": self.gender,
+            "favorite_region": self.favorite_region,
+            "power": self.powers
+        }
