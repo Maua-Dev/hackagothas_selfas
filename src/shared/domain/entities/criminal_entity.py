@@ -36,3 +36,11 @@ class Criminal(ABC):
         if type(powers) != str:
             raise EntityError("powers")
         self.powers = powers
+
+        @staticmethod
+        def validate_name(name:str) -> bool:
+            if(type(name)!=str):
+                return False
+            if(len(name) < 2):
+                return False
+            return True
