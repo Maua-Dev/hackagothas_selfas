@@ -7,9 +7,9 @@ class CreateCriminalRecordUsecase:
     def __init__(self, repo_criminal_record : ICriminalRecordRepository):
         self.repo_criminal_record = repo_criminal_record
 
-    def __call__(self, danger_score:int, criminal_record: CriminalRecord) -> CriminalRecord:
+    def __call__(self,criminal_record: CriminalRecord) -> CriminalRecord:
 
-        if not CriminalRecord.validade_danger_score(danger_score):
+        if not CriminalRecord.validade_danger_score(criminal_record.danger_score):
             raise EntityError("danger_score")
         
         return self.repo_criminal_record.create_criminal_record(criminal_record=criminal_record)

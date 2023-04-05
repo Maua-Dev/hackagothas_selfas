@@ -2,7 +2,6 @@ import pytest
 
 from src.modules.create_criminal_record.app.create_criminal_record_controller import CreateRecordController
 from src.modules.create_criminal_record.app.create_criminal_record_usecase import CreateCriminalRecordUsecase
-from src.shared.helpers.errors.controller_errors import MissingParameters
 from src.shared.helpers.external_interfaces.http_models import HttpRequest
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
 
@@ -34,7 +33,7 @@ class TestCreateRecordController:
             "record_id": "42",
             # "type_crime": "FUCK_BOY",
             "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             "criminal_name": "Charada",
             "criminal_id": "420",
             "criminal_description": "Umas charadas muito loucas",
@@ -51,7 +50,7 @@ class TestCreateRecordController:
             "record_id": "42",
             "type_crime": "FUCK_BOY",
             # "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             "criminal_name": "Charada",
             "criminal_id": "420",
             "criminal_description": "Umas charadas muito loucas",
@@ -85,7 +84,7 @@ class TestCreateRecordController:
             "record_id": "42",
             "type_crime": "FUCK_BOY",
             "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             # "criminal_name": "Charada",
             "criminal_id": "420",
             "criminal_description": "Umas charadas muito loucas",
@@ -102,7 +101,7 @@ class TestCreateRecordController:
             "record_id": "42",
             "type_crime": "FUCK_BOY",
             "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             "criminal_name": "Charada",
             # "criminal_id": "420",
             "criminal_description": "Umas charadas muito loucas",
@@ -119,7 +118,7 @@ class TestCreateRecordController:
             "record_id": "42",
             "type_crime": "FUCK_BOY",
             "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             "criminal_name": "Charada",
             "criminal_id": "420",
             # "criminal_description": "Umas charadas muito loucas",
@@ -136,7 +135,7 @@ class TestCreateRecordController:
             "record_id": "42",
             "type_crime": "FUCK_BOY",
             "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             "criminal_name": "Charada",
             "criminal_id": "420",
             "criminal_description": "Umas charadas muito loucas",
@@ -153,7 +152,7 @@ class TestCreateRecordController:
             "record_id": "42",
             "type_crime": "FUCK_BOY",
             "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             "criminal_name": "Charada",
             "criminal_id": "420",
             "criminal_description": "Umas charadas muito loucas",
@@ -170,7 +169,7 @@ class TestCreateRecordController:
             "record_id": "42",
             "type_crime": "FUCK_BOY",
             "is_in_jail": True,
-            "danger_score": 8001,
+            "danger_score": "8001",
             "criminal_name": "Charada",
             "criminal_id": "420",
             "criminal_description": "Umas charadas muito loucas",

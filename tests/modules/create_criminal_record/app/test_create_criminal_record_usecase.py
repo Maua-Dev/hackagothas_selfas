@@ -18,7 +18,7 @@ class Test_CreateCriminalRecordUsecase:
                            is_in_jail=False, danger_score=94, criminal=repo.criminals[0])
 
 
-        createUsecase(repo.criminal_records[0].danger_score, criminal_record) #Adicionando ficha no banco de dados
+        createUsecase(criminal_record) #Adicionando ficha no banco de dados
 
         criminal_record_response = repo.criminal_records[-1]
 
@@ -30,12 +30,12 @@ class Test_CreateCriminalRecordUsecase:
 
     # def test_create_criminal_record_usecase_criminal_record_id_already_exists(self):
     #     repo = CriminalRecordRepositoryMock()
-
+    #
     #     usecase = CreateCriminalRecordUsecase(repo)
-
+    #
     #     usecase()
-
+    #
     #     criminal_record = CriminalRecord(id="jdiqhihq", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,
     #                        is_in_jail=False, danger_score=94, criminal=repo.criminals[0])
-        
-    #     with pytest
+    #
+    #

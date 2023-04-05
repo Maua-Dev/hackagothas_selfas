@@ -1,8 +1,11 @@
 from src.modules.create_criminal_record.app.create_criminal_record_usecase import CreateCriminalRecordUsecase
-from src.modules.create_criminal_record.app.create_criminal_record_view_model import CreateCriminalRecordViewModel
+from src.modules.create_criminal_record.app.create_criminal_record_view_model import CreateCriminalRecordViewmodel
 from src.shared.domain.entities.criminal_entity import Criminal
 from src.shared.domain.entities.criminal_record_entity import CriminalRecord
-from src.shared.helpers.errors.controller_errors import MissingParameters
+from src.shared.domain.enums.favorite_region_enum import FAVORITE_REGION
+from src.shared.domain.enums.gender_enum import GENDER
+from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
+from src.shared.helpers.errors.controller_errors import MissingParameters, WrongTypeParameter
 from src.shared.helpers.errors.domain_errors import EntityError
 from src.shared.helpers.external_interfaces.external_interface import IRequest
 from src.shared.helpers.external_interfaces.http_codes import BadRequest, Created, InternalServerError
@@ -48,27 +51,31 @@ class CreateRecordController:
                 request.data.get("criminal_name"),
                 request.data.get("criminal_id"),
                 request.data.get("criminal_description"),
-                request.data.get("criminal_gender"),
-                request.data.get("criminal_favorite_region"),
+                GENDER(request.data.get("criminal_gender")),
+                FAVORITE_REGION(request.data.get("criminal_favorite_region")),
                 request.data.get("criminal_powers"),
             )
 
             criminal_record = CriminalRecord(request.data.get("record_id"),
-                                             request.data.get("type_crime"),
-                                             request.data.get("is_in_jail"),
-                                             request.data.get("danger_score"),
+                                             TYPE_CRIME(request.data.get("type_crime")),
+                                             bool(request.data.get("is_in_jail")),
+                                             int(request.data.get("danger_score")),
                                              criminal
                                              )
 
-            response: CriminalRecord = self.create_record_use_case(criminal_record.danger_score, criminal_record)
-            viewModel = CreateCriminalRecordViewModel(response)
+            response  = self.create_record_use_case(criminal_record)
+            viewModel = CreateCriminalRecordViewmodel(response)
 
-            return Created(viewModel.convert_to_dictionary())
+            return Created(viewModel.to_dict())
 
         except MissingParameters as e:
-            return BadRequest(body=e)
+            return BadRequest(body=e.message)
 
         except EntityError as e:
+            return BadRequest(body=e.message)
+
+        except WrongTypeParameter as e:
+
             return BadRequest(body=e.message)
 
         except Exception as e:

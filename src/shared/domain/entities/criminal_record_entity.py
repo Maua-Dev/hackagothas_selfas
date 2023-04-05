@@ -18,7 +18,7 @@ class CriminalRecord(ABC):
 
         if type(type_crime) != TYPE_CRIME:
             raise EntityError("type_crime")
-        self.type_crime = TYPE_CRIME
+        self.type_crime = type_crime
 
         if type(is_in_jail) != bool:
             raise EntityError("is_in_jail")

@@ -8,13 +8,13 @@ from src.shared.domain.enums.favorite_region_enum import FAVORITE_REGION
 
 class CriminalRecordRepositoryMock(ICriminalRecordRepository):
 
-    criminal_record: list[CriminalRecord]
+    criminal_records: list[CriminalRecord]
 
-    criminal: list[Criminal]
+    criminals: list[Criminal]
 
     def __init__(self):
         self.criminals = [
-            Criminal(name="Coringa", id="oiue281u", description="palhaco",
+            Criminal(name="Coringa", criminal_id="oiue281u", description="palhaco",
                      gender=GENDER.NON_BINARY, favorite_region=FAVORITE_REGION.WAYNE_TOWER, powers="risadinha")
         ]
         self.criminal_records = [
@@ -24,4 +24,4 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
 
     def create_criminal_record(self, criminal_record: CriminalRecord) -> CriminalRecord:
         self.criminal_records.append(criminal_record)
-        return self.criminal_records
+        return criminal_record
