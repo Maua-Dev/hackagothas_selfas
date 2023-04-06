@@ -32,3 +32,17 @@ def test_criminal_region_is_not_enum():
 def test_criminal_powers_is_not_string():
     with pytest.raises(EntityError):
         Criminal("Duez", "42", "Deuz Gamer", GENDER.MALE, FAVORITE_REGION.CITY_HALL, 8001)
+
+def test_get_criminal_view_model():
+    myCriminal = Criminal("Duez", "42", "Deuz Gamer", GENDER.MALE, FAVORITE_REGION.CITY_HALL, "Os mesmos do miranha")
+
+    response = myCriminal.to_dict()
+
+    assert type(response) == dict
+    assert response["name"] == myCriminal.name
+    assert response["id"] == myCriminal.criminal_id
+    assert response["description"] == myCriminal.description
+    assert response["gender"] == myCriminal.gender.value
+    assert response["favorite_region"] == myCriminal.favorite_region.value
+    assert response["power"] == myCriminal.powers
+

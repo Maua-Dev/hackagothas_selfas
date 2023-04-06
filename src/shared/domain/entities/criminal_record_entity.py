@@ -18,7 +18,7 @@ class CriminalRecord(ABC):
 
         if type(type_crime) != TYPE_CRIME:
             raise EntityError("type_crime")
-        self.type_crime = TYPE_CRIME
+        self.type_crime = type_crime
 
         if type(is_in_jail) != bool:
             raise EntityError("is_in_jail")
@@ -31,3 +31,13 @@ class CriminalRecord(ABC):
         if type(criminal) != Criminal:
             raise EntityError("criminal")
         self.criminal = criminal
+
+    @staticmethod
+    def validade_danger_score(score:int) -> bool:
+        if(type(score) != int):
+            return False
+        if(score < 0):
+            return False
+        if(score > 100):
+            return False
+        return True
