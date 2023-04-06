@@ -1,4 +1,4 @@
-from src.modules.get_criminal_record_by_id.get_criminal_record_by_id import GetCriminalRecordByIdUseCase
+from src.modules.get_criminal_record_by_id.get_criminal_record_by_id_use_case import GetCriminalRecordByIdUseCase
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
 
 
