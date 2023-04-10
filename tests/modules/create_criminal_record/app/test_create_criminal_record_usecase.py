@@ -11,18 +11,18 @@ class Test_CreateCriminalRecordUsecase:
 
         createUsecase = CreateCriminalRecordUsecase(repo)
 
-        length_before = len(repo.criminal_records)
+        length_before = len(repo.criminal_records_list)
 
 
         criminal_record = CriminalRecord(id="jdiashq", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,
-                           is_in_jail=False, danger_score=94, criminal=repo.criminals[0])
+                                         is_in_jail=False, danger_score=94, criminal=repo.criminals_list[0])
 
 
         createUsecase(criminal_record) #Adicionando ficha no banco de dados
 
-        criminal_record_response = repo.criminal_records[-1]
+        criminal_record_response = repo.criminal_records_list[-1]
 
-        length_after = len(repo.criminal_records)
+        length_after = len(repo.criminal_records_list)
 
         assert length_after == length_before + 1 #Vendo se a quantidade de fichas no banco aumento de vdd
         
