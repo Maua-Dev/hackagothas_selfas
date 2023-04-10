@@ -31,3 +31,20 @@ class Test_CriminalRecordRepositoryMock:
             response = repo.get_criminal_record_by_id(id_to_search)
 
 
+    def test_update_criminal_record(self):
+        repo = CriminalRecordRepositoryMock()
+        id_to_search = repo.criminal_records_list[0].id
+        new_record_value = repo.get_criminal_record_by_id(id_to_search)
+        new_record_value.criminal.name = "Ha ha ha, mudei o nome"
+
+        response = repo.update_criminal_record(id_to_search, new_record_value)
+
+        assert repo.criminal_records_list[0] == response
+        assert repo.get_criminal_record_by_id(id_to_search) == response
+
+    def test_update_criminal_record_when_id_is_wrong(self):
+        with pytest.raises(NoItemsFound):
+            repo = CriminalRecordRepositoryMock()
+            id_to_search = "Um id que nao existe"
+            new_record_value = repo.get_criminal_record_by_id(id_to_search)
+            response = repo.update_criminal_record(id_to_search, new_record_value)
