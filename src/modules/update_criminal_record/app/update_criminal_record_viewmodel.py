@@ -3,7 +3,7 @@ from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
 
 
-class UpdateCriminalRecordByIdViewmodel:
+class UpdateCriminalRecordViewmodel:
     id: str
     type_crime: TYPE_CRIME
     is_in_jail: bool

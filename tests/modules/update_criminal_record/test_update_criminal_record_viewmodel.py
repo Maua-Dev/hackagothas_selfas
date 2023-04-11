@@ -1,4 +1,4 @@
-from src.modules.update_criminal_record.app.update_criminal_record_viewmodel import UpdateCriminalRecordByIdViewmodel
+from src.modules.update_criminal_record.app.update_criminal_record_viewmodel import UpdateCriminalRecordViewmodel
 from src.shared.domain.entities.criminal_entity import Criminal
 from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.domain.enums.favorite_region_enum import FAVORITE_REGION
@@ -11,7 +11,7 @@ class Test_UpdateCriminalRecordByIdViewmodel:
         criminal = Criminal("Duez", "42", "Deuz Gamer", GENDER.MALE, FAVORITE_REGION.CITY_HALL, "Os mesmos do miranha")
         criminalRecord = CriminalRecord("42", TYPE_CRIME.MURDER, True, 8001, criminal)
 
-        viewModel = UpdateCriminalRecordByIdViewmodel(criminalRecord)
+        viewModel = UpdateCriminalRecordViewmodel(criminalRecord)
 
         response = viewModel.to_dict()
 
