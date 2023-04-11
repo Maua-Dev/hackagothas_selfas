@@ -24,22 +24,22 @@ class Test_CreateRecordPresenter:
         response = create_criminal_record_presenter(event, None)
 
         expect = {
-   'criminal_record':{
-      'record_id':'42',
-      'type_crime':'NAZI',
-      'is_in_jail':True,
-      'danger_score':96,
-      'criminal':{
-         'name':'Charada',
-         'id':'2',
-         'description':'Umas charadas muito loucas',
-         'gender':'MALE',
-         'favorite_region':'WAYNE_TOWER',
-         'power':'Boa oratoria'
-      }
-   },
-   'message':'Criminal record was created'
-}
+            'criminal_record': {
+                'record_id': '42',
+                'type_crime': 'NAZI',
+                'is_in_jail': True,
+                'danger_score': 96,
+                'criminal': {
+                    'name': 'Charada',
+                    'id': '2',
+                    'description': 'Umas charadas muito loucas',
+                    'gender': 'MALE',
+                    'favorite_region': 'WAYNE_TOWER',
+                    'power': 'Boa oratoria'
+                }
+            },
+            'message': 'Criminal record was created'
+        }
 
         assert response["status_code"] == 201
         assert json.loads(response["body"]) == expect

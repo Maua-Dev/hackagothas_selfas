@@ -1,5 +1,5 @@
 from src.modules.update_criminal_record.app.update_criminal_record_usecase import UpdateCriminalRecordUseCase
-from src.modules.update_criminal_record.update_criminal_record_controller import UpdateCriminalRecordController
+from src.modules.update_criminal_record.app.update_criminal_record_controller import UpdateCriminalRecordController
 from src.shared.helpers.external_interfaces.http_models import HttpRequest
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
 
