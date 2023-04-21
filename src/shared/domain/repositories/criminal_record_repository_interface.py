@@ -7,3 +7,7 @@ class ICriminalRecordRepository(ABC):
     @abstractmethod
     def create_criminal_record(self, criminal_record: CriminalRecord) -> CriminalRecord:
         pass
+
+    @abstractmethod
+    def delete_criminal_record(self, id: int) -> CriminalRecord:
+        pass
