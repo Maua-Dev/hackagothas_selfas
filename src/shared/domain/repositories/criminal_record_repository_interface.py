@@ -9,5 +9,5 @@ class ICriminalRecordRepository(ABC):
         pass
 
     @abstractmethod
-    def delete_criminal_record(self, id: int) -> CriminalRecord:
+    def delete_criminal_record(self, id: str) -> CriminalRecord:
         pass

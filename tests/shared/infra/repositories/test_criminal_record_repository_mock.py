@@ -12,3 +12,14 @@ class Test_CriminalRecordRepositoryMock:
         length_after = len(repo.criminal_records)
 
         assert length_after == length_before + 1
+
+    def test_delete_criminal_record(self):
+        repo = CriminalRecordRepositoryMock()
+
+        length_before = len(repo.criminal_records)
+
+        repo.delete_criminal_record(id=repo.criminal_records[0].id)
+
+        length_after = len(repo.criminal_records)
+
+        assert length_after == length_before - 1

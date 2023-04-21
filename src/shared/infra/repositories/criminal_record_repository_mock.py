@@ -26,6 +26,9 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
         self.criminal_records.append(criminal_record)
         return criminal_record
     
-    def delete_criminal_record(self, id) -> None:
-        self.criminal_records.pop(id)
-        return None
+    def delete_criminal_record(self, id) -> CriminalRecord:
+        for index,criminal in enumerate(self.criminal_records):
+            if(criminal.id == id):
+                self.criminal_records.pop(index)
+
+        return self.criminal_records
