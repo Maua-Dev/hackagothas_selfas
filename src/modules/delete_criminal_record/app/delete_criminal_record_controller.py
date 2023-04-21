@@ -1,18 +1,19 @@
+from src.modules.delete_criminal_record.app.delete_criminal_record_usecase import DeleteCriminalRecordUsecase
 from src.modules.delete_criminal_record.app.delete_criminal_record_viewmodel import DeleteCriminalRecordViewmodel
 from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.helpers.errors.controller_errors import MissingParameters, WrongTypeParameter
 from src.shared.helpers.errors.domain_errors import EntityError
-from src.shared.helpers.external_interfaces.external_interface import IRequest
 from src.shared.helpers.external_interfaces.http_codes import OK, BadRequest, InternalServerError, NotFound
 from src.shared.helpers.errors.usecase_errors import NoItemsFound
+from src.shared.helpers.external_interfaces.http_models import HttpRequest, HttpResponse
 
 
 class DeleteCriminalRecordController:
-    def __init__(self, delete_criminal_record_usecase: CriminalRecord):
+    def __init__(self, usecase: DeleteCriminalRecordUsecase):
 
-        self.delete_criminal_record_usecase = delete_criminal_record_usecase
+        self.delete_criminal_record_usecase = usecase
 
-    def __call__(self, request: IRequest):
+    def __call__(self, request: HttpRequest) -> HttpResponse:
 
         try:
 
@@ -29,8 +30,8 @@ class DeleteCriminalRecordController:
             criminal_record = self.delete_criminal_record_usecase(request.data.get("criminal_record_id"))
 
             viewmodel = DeleteCriminalRecordViewmodel(criminal_record)
-            
-            return OK(viewmodel.to_dict())
+
+            return OK(body=viewmodel.to_dict())
         
         except MissingParameters as e:
             return BadRequest(body=e.message)
