@@ -4,7 +4,7 @@ from src.shared.domain.repositories.criminal_record_repository_interface import 
 from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
 from src.shared.domain.enums.gender_enum import GENDER
 from src.shared.domain.enums.favorite_region_enum import FAVORITE_REGION
-
+from src.shared.helpers.errors.usecase_errors import NoItemsFound
 
 class CriminalRecordRepositoryMock(ICriminalRecordRepository):
 
@@ -30,5 +30,6 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
         for index,criminal in enumerate(self.criminal_records):
             if(criminal.id == id):
                 self.criminal_records.pop(index)
+                return self.criminal_records
 
-        return self.criminal_records
+        raise NoItemsFound("Criminal Record ID")

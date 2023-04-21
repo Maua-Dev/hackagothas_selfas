@@ -1,5 +1,6 @@
 import pytest
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
+from src.shared.helpers.errors.usecase_errors import NoItemsFound
 
 class Test_CriminalRecordRepositoryMock:
     def test_create_criminal_record(self):
@@ -23,3 +24,13 @@ class Test_CriminalRecordRepositoryMock:
         length_after = len(repo.criminal_records)
 
         assert length_after == length_before - 1
+
+    def test_delete_criminal_record_when_id_doesnt_exists(self):
+        with pytest.raises(NoItemsFound):
+            repo = CriminalRecordRepositoryMock()
+
+            id_nao_existente = "id_nao_existente"
+
+            repo.delete_criminal_record(id=id_nao_existente)
+
+            
