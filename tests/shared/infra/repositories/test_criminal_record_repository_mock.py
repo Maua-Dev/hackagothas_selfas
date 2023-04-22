@@ -29,5 +29,13 @@ class Test_CriminalRecordRepositoryMock:
             repo = CriminalRecordRepositoryMock()
             id_to_search = "Um id que nao existe"
             response = repo.get_criminal_record_by_id(id_to_search)
+    
+    def test_get_all_criminal_record(self):
+        repo = CriminalRecordRepositoryMock()
+
+        response = repo.get_all_criminal_records()
+        expected = repo.criminal_records_list
+
+        assert response == expected
 
 
