@@ -18,19 +18,24 @@ class TestGetAllCriminalRecordsViewModel:
         
         criminal_record2 = CriminalRecord("2314adw3", TYPE_CRIME.CRIME_AGAINST_SELFAS_THE_BEST_PROJECT, True, 2, criminal2)
 
-        total_criminal_records = [criminal_record, criminal_record2]
+        total_criminal_records: list[CriminalRecord] = [criminal_record, criminal_record2]
 
         view_model = GetAllCriminalRecordsViewModel(total_criminal_records)
 
-        response = view_model.to_dict()
+        response: list = view_model.to_dict()
 
         assert type(response) == list
         assert len(response) == 2
         assert type(response[0]) == dict
         assert type(response[1]) == dict
 
-        # for index,value in enumerate(response):
-        #     assert value == total_criminal_records[index]
+        for index, value in enumerate(response):
+            assert value["criminal_record"]["record_id"] == total_criminal_records[index].id
+            assert value["criminal_record"]["type_crime"] == total_criminal_records[index].type_crime
+            assert value["criminal_record"]["is_in_jail"] == total_criminal_records[index].is_in_jail
+            assert value["criminal_record"]["danger_score"] == total_criminal_records[index].danger_score
+            assert value["criminal_record"]["criminal"] == total_criminal_records[index].criminal.to_dict()
+
 
         # for value in response:
         #     assert value == total_criminal_records

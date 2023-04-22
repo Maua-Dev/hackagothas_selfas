@@ -14,7 +14,7 @@ class GetAllCriminalRecordsController:
 
     def __call__(self, request : HttpRequest):
         try:
-            criminal_record = self.get_all_criminal_records(request.data.get())
+            criminal_record = self.get_all_criminal_records()
 
             viewmodel = GetAllCriminalRecordsViewModel(criminal_record)
 
