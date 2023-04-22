@@ -29,7 +29,7 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
     def delete_criminal_record(self, id) -> CriminalRecord:
         for index,criminal in enumerate(self.criminal_records):
             if(criminal.id == id):
-                self.criminal_records.pop(index)
-                return self.criminal_records
+                return self.criminal_records.pop(index)
+
 
         raise NoItemsFound("Criminal Record ID")

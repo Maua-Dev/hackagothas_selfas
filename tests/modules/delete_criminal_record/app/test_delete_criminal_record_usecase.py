@@ -8,8 +8,10 @@ class TestDeleteCriminalRecordUsecase:
 
         usecase = DeleteCriminalRecordUsecase(repo)
 
-        response = usecase("jdiqhihq")
+        id_to_search = "jdiqhihq"
 
-        expected = []
+        expected = repo.criminal_records[0]
+
+        response = usecase(id_to_search)
 
         assert response == expected
