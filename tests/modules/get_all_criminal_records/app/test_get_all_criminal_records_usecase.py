@@ -2,8 +2,8 @@ from src.modules.get_all_criminal_records.app.get_all_criminal_records_usecase i
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
 
 
-class TestGetAllCriminalRecords:
-    def test_get_all_criminal_records(self):
+class TestGetAllCriminalRecordsUsecase:
+    def test_get_all_criminal_records_usecase(self):
         repo = CriminalRecordRepositoryMock()
 
         usecase = GetAllCriminalRecordsUsecase(repo)
