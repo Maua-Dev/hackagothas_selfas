@@ -34,6 +34,11 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
 
         raise NoItemsFound("Criminal Record ID")
 
+    def get_all_criminal_records(self) -> list[CriminalRecord]:
+        if(len(self.criminal_records_list) == 0):
+            raise NoItemsFound("No Criminal Record found")
+
+        return self.criminal_records_list
 
 
 
