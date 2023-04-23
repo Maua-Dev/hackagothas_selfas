@@ -36,8 +36,4 @@ class TestGetAllCriminalRecordsViewModel:
             assert value["criminal_record"]["danger_score"] == total_criminal_records[index].danger_score
             assert value["criminal_record"]["criminal"] == total_criminal_records[index].criminal.to_dict()
 
-
-        # for value in response:
-        #     assert value == total_criminal_records
-
       
