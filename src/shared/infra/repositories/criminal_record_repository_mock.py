@@ -20,7 +20,9 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
         ]
         self.criminal_records_list = [
             CriminalRecord(id="jdiqhihq", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,
-                           is_in_jail=False, danger_score=94, criminal=self.criminals_list[0])
+                           is_in_jail=False, danger_score=94, criminal=self.criminals_list[0]),
+            CriminalRecord(id="223", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,
+                           is_in_jail=True, danger_score=94, criminal=self.criminals_list[0])        
         ]
 
     def create_criminal_record(self, criminal_record: CriminalRecord) -> CriminalRecord:
