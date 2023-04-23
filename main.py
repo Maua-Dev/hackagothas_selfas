@@ -35,4 +35,4 @@ def get_all_criminal_records():
         "body": {}
     }
     response = get_all_criminal_records_presenter(event, None)
-    return response
+    return response.body
