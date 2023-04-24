@@ -16,11 +16,14 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
     def __init__(self):
         self.criminals_list = [
             Criminal(name="Coringa", criminal_id="oiue281u", description="palhaco",
-                     gender=GENDER.NON_BINARY, favorite_region=FAVORITE_REGION.WAYNE_TOWER, powers="risadinha")
+                     gender=GENDER.NON_BINARY, favorite_region=FAVORITE_REGION.WAYNE_TOWER, powers="risadinha"),
+            Criminal(name="Cersei", criminal_id="vdajndkja", description="filha da puta, vadia", gender=GENDER.FEMALE, favorite_region=FAVORITE_REGION.OLD_GOTHAM, powers="manipuladora")
         ]
         self.criminal_records_list = [
             CriminalRecord(id="jdiqhihq", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,
-                           is_in_jail=False, danger_score=94, criminal=self.criminals_list[0])
+                           is_in_jail=False, danger_score=94, criminal=self.criminals_list[0]),
+            CriminalRecord(id="asadwa", type_crime=TYPE_CRIME.DOMESTIC_VIOLENCE,
+                           is_in_jail=True, danger_score=27, criminal=self.criminals_list[1])        
         ]
 
     def create_criminal_record(self, criminal_record: CriminalRecord) -> CriminalRecord:
@@ -34,6 +37,11 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
 
         raise NoItemsFound("Criminal Record ID")
 
+    def get_all_criminal_records(self) -> list[CriminalRecord]:
+        if(len(self.criminal_records_list) == 0):
+            raise NoItemsFound("No Criminal Record found")
+
+        return self.criminal_records_list
 
 
 

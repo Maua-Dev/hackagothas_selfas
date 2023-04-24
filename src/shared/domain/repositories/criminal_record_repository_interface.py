@@ -11,3 +11,7 @@ class ICriminalRecordRepository(ABC):
     @abstractmethod
     def get_criminal_record_by_id(self, id_to_search: str) -> CriminalRecord:
         pass
+
+    @abstractmethod
+    def get_all_criminal_records(self) -> list[CriminalRecord]:
+        pass
