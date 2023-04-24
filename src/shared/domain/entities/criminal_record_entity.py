@@ -1,24 +1,18 @@
 from abc import ABC
 from src.shared.helpers.errors.domain_errors import EntityError
-from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
 from src.shared.domain.entities.criminal_entity import Criminal
 
 
 class CriminalRecord(ABC):
     id: str
-    type_crime: TYPE_CRIME
     is_in_jail: bool
     danger_score: int
     criminal: Criminal
 
-    def __init__(self, id: str, type_crime: TYPE_CRIME, is_in_jail: bool, danger_score: int, criminal: Criminal):
+    def __init__(self, id: str, is_in_jail: bool, danger_score: int, criminal: Criminal):
         if type(id) != str:
             raise EntityError("id")
         self.id = id
-
-        if type(type_crime) != TYPE_CRIME:
-            raise EntityError("type_crime")
-        self.type_crime = type_crime
 
         if type(is_in_jail) != bool:
             raise EntityError("is_in_jail")

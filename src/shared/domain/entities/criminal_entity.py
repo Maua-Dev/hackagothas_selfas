@@ -1,4 +1,5 @@
 from abc import ABC
+from src.shared.domain.entities.crime_entity import Crime
 from src.shared.helpers.errors.domain_errors import EntityError
 from src.shared.domain.enums.gender_enum import GENDER
 from src.shared.domain.enums.favorite_region_enum import FAVORITE_REGION
@@ -11,8 +12,9 @@ class Criminal(ABC):
     gender: GENDER
     favorite_region: FAVORITE_REGION
     powers: str
+    crimes: list[Crime]
 
-    def __init__(self, name: str, criminal_id: str, description: str, gender: GENDER, favorite_region: FAVORITE_REGION, powers: str):
+    def __init__(self, name: str, criminal_id: str, description: str, gender: GENDER, favorite_region: FAVORITE_REGION, powers: str, crimes: list[Crime]):
         if type(name) != str:
             raise EntityError("name")
         self.name = name
@@ -36,6 +38,10 @@ class Criminal(ABC):
         if type(powers) != str:
             raise EntityError("powers")
         self.powers = powers
+
+        if type(crimes) != Crime:
+            raise EntityError("crime")
+        self.crime = crimes
 
     @staticmethod
     def validate_name(name: str) -> bool:

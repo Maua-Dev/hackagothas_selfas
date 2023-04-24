@@ -1,3 +1,4 @@
+from src.shared.domain.entities.crime_entity import Crime
 from src.shared.domain.entities.criminal_entity import Criminal
 from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.domain.repositories.criminal_record_repository_interface import ICriminalRecordRepository
@@ -16,8 +17,8 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
     def __init__(self):
         self.criminals_list = [
             Criminal(name="Coringa", criminal_id="oiue281u", description="palhaco",
-                     gender=GENDER.NON_BINARY, favorite_region=FAVORITE_REGION.WAYNE_TOWER, powers="risadinha"),
-            Criminal(name="Cersei", criminal_id="vdajndkja", description="filha da puta, vadia", gender=GENDER.FEMALE, favorite_region=FAVORITE_REGION.OLD_GOTHAM, powers="manipuladora")
+                     gender=GENDER.NON_BINARY, favorite_region=FAVORITE_REGION.WAYNE_TOWER, powers="risadinha", crime=Crime(["124",TYPE_CRIME.DOMESTIC_VIOLENCE])),
+            Criminal(name="Cersei", criminal_id="vdajndkja", description="filha da puta, vadia", gender=GENDER.FEMALE, favorite_region=FAVORITE_REGION.OLD_GOTHAM, powers="manipuladora", crime=Crime(["1212",TYPE_CRIME.NAZI]))
         ]
         self.criminal_records_list = [
             CriminalRecord(id="jdiqhihq", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,

@@ -7,9 +7,8 @@ from src.shared.domain.entities.criminal_entity import Criminal
 class Crime(ABC):
     id: str
     type_crime: TYPE_CRIME
-    criminal: Criminal
 
-    def __init__(self, id: str, type_crime: TYPE_CRIME, criminal: Criminal):
+    def __init__(self, id: str, type_crime: TYPE_CRIME):
         if type(id) != str:
             raise EntityError("id")
         self.id = id
@@ -17,7 +16,3 @@ class Crime(ABC):
         if type(type_crime) != TYPE_CRIME:
             raise EntityError("type_crime")
         self.type_crime = TYPE_CRIME
-
-        if type(criminal) != Criminal:
-            raise EntityError("type_crime")
-        self.criminal = criminal
