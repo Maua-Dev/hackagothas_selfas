@@ -35,5 +35,6 @@ class GetCriminalByIdViewModel:
                     "id": self.crime.id,
                     "type_crime":self.crime.type_crime.value
                 }
-            }
+            },
+            "message": "the criminal was retrieved successfully"
         }
