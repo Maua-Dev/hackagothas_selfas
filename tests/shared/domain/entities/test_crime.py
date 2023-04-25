@@ -5,7 +5,8 @@ from src.shared.helpers.errors.domain_errors import EntityError
 
 class TestCrime:
     def test_crime(self):
-        Crime("42",TYPE_CRIME.CRIME_AGAINST_SELFAS_THE_BEST_PROJECT)
+        crime = Crime("42",TYPE_CRIME.CRIME_AGAINST_SELFAS_THE_BEST_PROJECT)
+        assert type(crime) is Crime
 
     def test_crime_entity_id_is_not_string(self):
         with pytest.raises(EntityError):

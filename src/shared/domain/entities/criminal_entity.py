@@ -12,10 +12,10 @@ class Criminal(ABC):
     gender: GENDER
     favorite_region: FAVORITE_REGION
     powers: str
-    crimesList: list[Crime]
+    crime: Crime
 
     def __init__(self, name: str, criminal_id: str, description: str, gender: GENDER, favorite_region: FAVORITE_REGION,
-                 powers: str, crimesList: list[Crime]):
+                 powers: str, crime: Crime):
         if type(name) != str:
             raise EntityError("name")
         self.name = name
@@ -40,9 +40,9 @@ class Criminal(ABC):
             raise EntityError("powers")
         self.powers = powers
 
-        if type(crimesList) != type([Crime]):
+        if type(crime) != Crime:
             raise EntityError("crime")
-        self.crimesList = crimesList
+        self.crime = crime
 
     @staticmethod
     def validate_name(name: str) -> bool:
@@ -60,5 +60,7 @@ class Criminal(ABC):
             "gender": self.gender.value,
             "favorite_region": self.favorite_region.value,
             "power": self.powers,
-            "crimes_list": self.crimesList
+            # "crime": self.crime.to_dict()
+            "crime_id": self.crime.id,
+            "crime_type_crime":self.crime.type_crime.value
         }

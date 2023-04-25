@@ -20,7 +20,8 @@ class TestGetAllCriminalRecordsPresenter:
                        'description':'palhaco',
                        'gender':'NON_BINARY',
                        'favorite_region':'WAYNE_TOWER',
-                       'power':'risadinha'
+                       'power':'risadinha',
+                       'crimes_list':'[]'
                     }
                 },
                 'message':'Criminal record was created'
