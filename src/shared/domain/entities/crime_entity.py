@@ -1,7 +1,6 @@
 from abc import ABC
 from src.shared.helpers.errors.domain_errors import EntityError
 from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
-from src.shared.domain.entities.criminal_entity import Criminal
 
 
 class Crime(ABC):

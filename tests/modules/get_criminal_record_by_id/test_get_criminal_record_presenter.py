@@ -20,7 +20,6 @@ class Test_GetCriminalRecordByIdPresenter:
         expect = {
             "criminal_record": {
                 "record_id": "jdiqhihq",
-                "type_crime": TYPE_CRIME.HATER_OF_INTERESTELLAR.value,
                 "is_in_jail": False,
                 "danger_score": 94,
                 "criminal": {

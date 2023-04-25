@@ -12,7 +12,6 @@ class TestGetAllCriminalRecordsPresenter:
             {
                 'criminal_record':{
                     'record_id':'jdiqhihq',
-                    'type_crime':'HATER_OF_INTERESTELLAR',
                     'is_in_jail':False,
                     'danger_score':94,
                     'criminal':{
@@ -28,17 +27,16 @@ class TestGetAllCriminalRecordsPresenter:
             },
             {
                 'criminal_record':{
-                    'record_id':'223',
-                    'type_crime':'HATER_OF_INTERESTELLAR',
+                    'record_id':'asadwa',
                     'is_in_jail':True,
-                    'danger_score':94,
+                    'danger_score':27,
                     'criminal':{
-                       'name':'Coringa',
-                       'id':'oiue281u',
-                       'description':'palhaco',
-                       'gender':'NON_BINARY',
-                       'favorite_region':'WAYNE_TOWER',
-                       'power':'risadinha'
+                       'name':'Cersei',
+                       'id':'vdajndkja',
+                       'description':'filha da puta, vadia',
+                       'gender':'FEMALE',
+                       'favorite_region':'OLD_GOTHAM',
+                       'power':'manipuladora'
                     }
                 },
                 'message':'Criminal record was created'

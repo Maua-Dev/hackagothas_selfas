@@ -8,7 +8,6 @@ class Test_CreateRecordPresenter:
         event = {
             "body": {
                 "record_id": "42",
-                "type_crime": "NAZI",
                 "is_in_jail": True,
                 "danger_score": "96",
                 "criminal_name": "Charada",
@@ -26,7 +25,6 @@ class Test_CreateRecordPresenter:
         expect = {
    'criminal_record':{
       'record_id':'42',
-      'type_crime':'NAZI',
       'is_in_jail':True,
       'danger_score':96,
       'criminal':{

@@ -12,9 +12,10 @@ class Criminal(ABC):
     gender: GENDER
     favorite_region: FAVORITE_REGION
     powers: str
-    crimes: list[Crime]
+    crimesList: list[Crime]
 
-    def __init__(self, name: str, criminal_id: str, description: str, gender: GENDER, favorite_region: FAVORITE_REGION, powers: str, crimes: list[Crime]):
+    def __init__(self, name: str, criminal_id: str, description: str, gender: GENDER, favorite_region: FAVORITE_REGION,
+                 powers: str, crimesList: list[Crime]):
         if type(name) != str:
             raise EntityError("name")
         self.name = name
@@ -39,9 +40,9 @@ class Criminal(ABC):
             raise EntityError("powers")
         self.powers = powers
 
-        if type(crimes) != Crime:
+        if type(crimesList) != type([Crime]):
             raise EntityError("crime")
-        self.crime = crimes
+        self.crimesList = crimesList
 
     @staticmethod
     def validate_name(name: str) -> bool:
@@ -51,12 +52,13 @@ class Criminal(ABC):
             return False
         return True
 
-    def to_dict(self): #Todo: Colocar essa função na camada de view model
+    def to_dict(self):
         return {
             "name": self.name,
             "id": self.criminal_id,
             "description": self.description,
             "gender": self.gender.value,
             "favorite_region": self.favorite_region.value,
-            "power": self.powers
+            "power": self.powers,
+            "crimes_list": self.crimesList
         }

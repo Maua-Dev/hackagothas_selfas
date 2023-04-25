@@ -1,5 +1,6 @@
 from src.modules.create_criminal_record.app.create_criminal_record_usecase import CreateCriminalRecordUsecase
 from src.modules.create_criminal_record.app.create_criminal_record_view_model import CreateCriminalRecordViewmodel
+from src.shared.domain.entities.crime_entity import Crime
 from src.shared.domain.entities.criminal_entity import Criminal
 from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.domain.enums.favorite_region_enum import FAVORITE_REGION
@@ -19,9 +20,6 @@ class CreateRecordController:
         try:
             if request.data.get("record_id") is None:
                 raise MissingParameters("record_id")
-
-            if request.data.get("type_crime") is None:
-                raise MissingParameters("type_crime")
 
             if request.data.get("is_in_jail") is None:
                 raise MissingParameters("is_in_jail")
@@ -47,6 +45,16 @@ class CreateRecordController:
             if request.data.get("criminal_powers") is None:
                 raise MissingParameters("criminal_powers")
 
+            if request.data.get("criminal_crimes_id") is None:
+                raise MissingParameters("criminal_crimes_id")
+
+            if request.data.get("criminal_crimes_type") is None:
+                raise MissingParameters("criminal_crimes_type")
+
+            crime = Crime(
+                request.data.get("criminal_crimes_id")
+                                ,request.data.get("criminal_crimes_type"))
+
             criminal = Criminal(
                 request.data.get("criminal_name"),
                 request.data.get("criminal_id"),
@@ -54,16 +62,16 @@ class CreateRecordController:
                 GENDER(request.data.get("criminal_gender")),
                 FAVORITE_REGION(request.data.get("criminal_favorite_region")),
                 request.data.get("criminal_powers"),
+                [crime]
             )
 
             criminal_record = CriminalRecord(request.data.get("record_id"),
-                                             TYPE_CRIME(request.data.get("type_crime")),
                                              bool(request.data.get("is_in_jail")),
                                              int(request.data.get("danger_score")),
                                              criminal
                                              )
 
-            response  = self.create_record_use_case(criminal_record)
+            response = self.create_record_use_case(criminal_record)
             viewModel = CreateCriminalRecordViewmodel(response)
 
             return Created(viewModel.to_dict())

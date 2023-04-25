@@ -20,7 +20,6 @@ class GetAllCriminalRecordsViewModel:
             array.append({
                 "criminal_record": {
                     "record_id": item.id,
-                    "type_crime": item.type_crime.value,
                     "is_in_jail": item.is_in_jail,
                     "danger_score": item.danger_score,
                     "criminal": item.criminal.to_dict()

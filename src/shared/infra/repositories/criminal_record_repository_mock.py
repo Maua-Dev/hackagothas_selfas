@@ -17,13 +17,13 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
     def __init__(self):
         self.criminals_list = [
             Criminal(name="Coringa", criminal_id="oiue281u", description="palhaco",
-                     gender=GENDER.NON_BINARY, favorite_region=FAVORITE_REGION.WAYNE_TOWER, powers="risadinha", crime=Crime(["124",TYPE_CRIME.DOMESTIC_VIOLENCE])),
-            Criminal(name="Cersei", criminal_id="vdajndkja", description="filha da puta, vadia", gender=GENDER.FEMALE, favorite_region=FAVORITE_REGION.OLD_GOTHAM, powers="manipuladora", crime=Crime(["1212",TYPE_CRIME.NAZI]))
+                     gender=GENDER.NON_BINARY, favorite_region=FAVORITE_REGION.WAYNE_TOWER, powers="risadinha", crimesList=[Crime("124", TYPE_CRIME.DOMESTIC_VIOLENCE)]),
+            Criminal(name="Cersei", criminal_id="vdajndkja", description="filha da puta, vadia", gender=GENDER.FEMALE, favorite_region=FAVORITE_REGION.OLD_GOTHAM, powers="manipuladora", crimesList=[Crime("1212", TYPE_CRIME.NAZI)])
         ]
         self.criminal_records_list = [
-            CriminalRecord(id="jdiqhihq", type_crime=TYPE_CRIME.HATER_OF_INTERESTELLAR,
+            CriminalRecord(id="jdiqhihq",
                            is_in_jail=False, danger_score=94, criminal=self.criminals_list[0]),
-            CriminalRecord(id="asadwa", type_crime=TYPE_CRIME.DOMESTIC_VIOLENCE,
+            CriminalRecord(id="asadwa",
                            is_in_jail=True, danger_score=27, criminal=self.criminals_list[1])        
         ]
 
