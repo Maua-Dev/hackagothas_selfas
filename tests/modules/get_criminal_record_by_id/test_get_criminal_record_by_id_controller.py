@@ -1,5 +1,3 @@
-import pytest
-
 from src.modules.get_criminal_record_by_id.get_criminal_record_by_id_controller import GetCriminalRecordByIdController
 from src.modules.get_criminal_record_by_id.get_criminal_record_by_id_use_case import GetCriminalRecordByIdUseCase
 from src.shared.helpers.external_interfaces.http_models import HttpRequest
@@ -35,3 +33,11 @@ class Test_GetCriminalRecordByIdController:
         response = self.controller(request)
 
         assert response.status_code == 404
+
+    def test_get_criminal_record_should_return_sucessfully(self):
+        request = HttpRequest(body={
+            "criminal_record_id": "jdiqhihq" #Um id que existe
+        })
+
+        response = self.controller(request)
+        assert response.status_code == 200

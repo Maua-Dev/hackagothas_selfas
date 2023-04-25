@@ -1,12 +1,12 @@
-from src.modules.create_criminal_record.app.create_criminal_record_controller import CreateRecordController
-from src.modules.create_criminal_record.app.create_criminal_record_usecase import CreateCriminalRecordUsecase
+from src.modules.update_criminal_record.app.update_criminal_record_controller import UpdateCriminalRecordController
+from src.modules.update_criminal_record.app.update_criminal_record_usecase import UpdateCriminalRecordUseCase
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
 from src.shared.helpers.external_interfaces.http_fastapi_requests import FastAPIHttpRequest, FastAPIHttpResponse
 
-def create_criminal_record_presenter(event, context):
+def update_criminal_record_presenter(event, context):
     repo = CriminalRecordRepositoryMock()
-    usecase = CreateCriminalRecordUsecase(repo)
-    controller = CreateRecordController(usecase)
+    usecase = UpdateCriminalRecordUseCase(repo)
+    controller = UpdateCriminalRecordController(usecase)
 
     httpRequest = FastAPIHttpRequest(data=event)
     response = controller(httpRequest)

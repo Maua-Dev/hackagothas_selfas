@@ -15,3 +15,11 @@ class ICriminalRecordRepository(ABC):
     @abstractmethod
     def get_all_criminal_records(self) -> list[CriminalRecord]:
         pass
+
+    @abstractmethod
+    def update_criminal_record(self, id_to_update, new_record_value) -> CriminalRecord:
+        pass
+
+    @abstractmethod
+    def delete_criminal_record(self, id) -> CriminalRecord:
+        pass

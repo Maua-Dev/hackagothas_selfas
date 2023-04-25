@@ -14,4 +14,10 @@ class Crime(ABC):
 
         if type(type_crime) != TYPE_CRIME:
             raise EntityError("type_crime")
-        self.type_crime = TYPE_CRIME
+        self.type_crime = type_crime
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "type_crime": self.type_crime.value
+        }

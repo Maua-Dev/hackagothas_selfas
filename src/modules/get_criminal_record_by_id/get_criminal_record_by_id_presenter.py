@@ -14,4 +14,4 @@ def get_criminal_record_by_id_presenter(event, context):
     httpResponse = FastAPIHttpResponse(
         status_code=response.status_code, body=response.body, headers=response.headers)
 
-    return httpResponse.to_dict()
+    return httpResponse

@@ -8,11 +8,11 @@ from src.shared.domain.enums.gender_enum import GENDER
 from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
 from src.shared.helpers.errors.domain_errors import EntityError
 
-criminal = Criminal("Duez", "42", "Deuz gamer", GENDER.MALE, FAVORITE_REGION.GRANT_PARK, "Os mesmos do homem-aranha",crimesList=[Crime("124", TYPE_CRIME.DOMESTIC_VIOLENCE)])
+criminal = Criminal("Duez", "42", "Deuz gamer", GENDER.MALE, FAVORITE_REGION.GRANT_PARK, "Os mesmos do homem-aranha",crime=Crime("124", TYPE_CRIME.DOMESTIC_VIOLENCE))
 
 def test_criminal_record_instantiation():
-    CriminalRecord("42",  True, 8001, criminal)
-
+    criminal_record = CriminalRecord("42",  True, 8001, criminal)
+    assert type(criminal_record) is CriminalRecord
 
 def test_id_is_not_string():
     with pytest.raises(EntityError):

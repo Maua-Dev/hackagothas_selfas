@@ -11,7 +11,25 @@ class TestCreateRecordController:
     useCase = CreateCriminalRecordUsecase(repoMock)
     createRecordController = CreateRecordController(useCase)
 
-    def test_controller_missing_record_id(self):
+    def test_controller_should_create_correctly(self):
+        request = HttpRequest(body={
+            "record_id": "42",
+            "is_in_jail": True,
+            "danger_score": 81,
+            "criminal_name": "Charada",
+            "criminal_id": "420",
+            "criminal_description": "Umas charadas muito loucas",
+            "criminal_gender": "MALE",
+            "criminal_favorite_region": "WAYNE_TOWER",
+            "criminal_powers": "Belaoratoria",
+            "criminal_crimes_id": "32",
+            "criminal_crimes_type": "MURDER"
+        })
+
+        response = self.createRecordController(request)
+        assert response.status_code == 201
+
+    def test_controller_should_throw_a_error_when_score_is_not_valid(self):
         request = HttpRequest(body={
             "record_id": "42",
             "is_in_jail": True,
@@ -22,16 +40,13 @@ class TestCreateRecordController:
             "criminal_gender": "MALE",
             "criminal_favorite_region": "WAYNE_TOWER",
             "criminal_powers": "Belaoratoria",
-            "crimes": [
-                {
-                    "criminal_crimes_id": "32",
-                    "criminal_crimes_type": "MURDER"
-                }
-            ]
+            "criminal_crimes_id": "32",
+            "criminal_crimes_type": "MURDER"
         })
 
         response = self.createRecordController(request)
-        assert response.status_code == 200
+        assert response.status_code == 400
+
     def test_controller_missing_record_id(self):
         request = HttpRequest(body={
             # "record_id": "42",
