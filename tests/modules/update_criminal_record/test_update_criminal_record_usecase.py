@@ -6,6 +6,7 @@ from src.shared.helpers.errors.usecase_errors import ForbiddenAction
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
 
 
+#A
 class Test_UpdateCriminalRecordUseCase:
     repo = CriminalRecordRepositoryMock()
     use_case = UpdateCriminalRecordUseCase(repo)

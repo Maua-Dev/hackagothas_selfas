@@ -6,6 +6,7 @@ from src.shared.domain.enums.gender_enum import GENDER
 from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
 
 
+#A
 class Test_UpdateCriminalRecordByIdViewmodel:
     def test_convert_to_dictionary(self):
         criminal = Criminal("Duez", "42", "Deuz Gamer", GENDER.MALE, FAVORITE_REGION.CITY_HALL, "Os mesmos do miranha")

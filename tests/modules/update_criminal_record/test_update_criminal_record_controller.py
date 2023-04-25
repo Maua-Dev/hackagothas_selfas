@@ -2,7 +2,7 @@ from src.modules.update_criminal_record.app.update_criminal_record_usecase impor
 from src.modules.update_criminal_record.app.update_criminal_record_controller import UpdateCriminalRecordController
 from src.shared.helpers.external_interfaces.http_models import HttpRequest
 from src.shared.infra.repositories.criminal_record_repository_mock import CriminalRecordRepositoryMock
-
+#A
 
 class Test_UpdateCriminalRecordController:
     repo = CriminalRecordRepositoryMock()

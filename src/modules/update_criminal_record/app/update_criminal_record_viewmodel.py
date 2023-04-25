@@ -1,7 +1,7 @@
 from src.shared.domain.entities.criminal_entity import Criminal
 from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
-
+#A
 
 class UpdateCriminalRecordViewmodel:
     id: str
