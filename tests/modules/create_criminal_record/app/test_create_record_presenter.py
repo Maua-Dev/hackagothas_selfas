@@ -44,5 +44,5 @@ class Test_CreateRecordPresenter:
             'message':'Criminal record was created'
         }
 
-        assert response["status_code"] == 201
-        assert json.loads(response["body"]) == expect
+        assert response.status_code == 201
+        assert response.body == expect
