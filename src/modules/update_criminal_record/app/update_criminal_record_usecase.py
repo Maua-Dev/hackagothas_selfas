@@ -2,7 +2,7 @@ from src.shared.domain.entities.criminal_record_entity import CriminalRecord
 from src.shared.domain.repositories.criminal_record_repository_interface import ICriminalRecordRepository
 from src.shared.helpers.errors.domain_errors import EntityError
 from src.shared.helpers.errors.usecase_errors import ForbiddenAction
-#a
+
 
 class UpdateCriminalRecordUseCase:
     def __init__(self, repo_criminal_record: ICriminalRecordRepository):

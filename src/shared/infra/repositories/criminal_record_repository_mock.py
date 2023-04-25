@@ -44,6 +44,13 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
 
         return self.criminal_records_list
 
+    def update_criminal_record(self, id_to_update: str, new_record_value: CriminalRecord) -> CriminalRecord:
+        for i in range(len(self.criminal_records_list)):
+            if self.criminal_records_list[i].id == id_to_update:
+                self.criminal_records_list[i] = new_record_value
+                return self.criminal_records_list[i]
+
+        raise NoItemsFound("Criminal Record ID")
 
 
 
