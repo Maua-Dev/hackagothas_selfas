@@ -12,7 +12,7 @@ from src.shared.helpers.external_interfaces.external_interface import IRequest
 from src.shared.helpers.external_interfaces.http_codes import BadRequest, InternalServerError, OK, NotFound
 
 
-class UpdateCriminalRecordController:
+class UpdateCriminalRecordController:#a
 
     def __init__(self, update_criminal_record_use_case: UpdateCriminalRecordUseCase):
         self.update_criminal_record_use_case = update_criminal_record_use_case
