@@ -8,5 +8,5 @@ class ICriminalRepository(ABC):
         pass
 
     @abstractmethod
-    def delete_criminal(self) -> Criminal:
+    def get_criminal_by_id(self, id:str) -> Criminal:
         pass
