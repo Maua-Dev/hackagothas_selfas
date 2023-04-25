@@ -17,8 +17,8 @@ def create_criminal_record(data: dict = None):
     return response
 
 
-@app.get("/get_criminal_record_by_id/")
-def get_criminal_record(data: dict = None):
+@app.post("/get_criminal_record_by_id/") #Todo: Isso aqui deveria ser um get
+def get_criminal_record_by_id(data: dict = None):
     event = {
         "body": {
             k: str(v) for k, v in data.items()

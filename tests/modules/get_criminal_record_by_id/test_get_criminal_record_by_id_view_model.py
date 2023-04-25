@@ -9,8 +9,8 @@ from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
 
 class Test_GetCriminalRecordByIdViewmodel:
     def test_convert_to_dictionary(self):
-        criminal = Criminal("Duez", "42", "Deuz Gamer", GENDER.MALE, FAVORITE_REGION.CITY_HALL, "Os mesmos do miranha", [Crime("444", TYPE_CRIME.MURDER)])
-        criminalRecord = CriminalRecord("42", True, 8001, criminal)
+        criminal = Criminal("Duez", "42", "Deuz Gamer", GENDER.MALE, FAVORITE_REGION.CITY_HALL, "Os mesmos do miranha", Crime("444", TYPE_CRIME.MURDER))
+        criminalRecord = CriminalRecord("42", True, 80, criminal)
 
         viewModel = GetCriminalRecordByIdViewmodel(criminalRecord)
 

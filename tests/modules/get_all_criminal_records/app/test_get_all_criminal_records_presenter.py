@@ -24,7 +24,7 @@ class TestGetAllCriminalRecordsPresenter:
                        'crimes_list':'[]'
                     }
                 },
-                'message':'Criminal record was created'
+                'message':'Record was retrieved'
             },
             {
                 'criminal_record':{
@@ -40,7 +40,7 @@ class TestGetAllCriminalRecordsPresenter:
                        'power':'manipuladora'
                     }
                 },
-                'message':'Criminal record was created'
+                'message':'Record was retrieved'
             }
         ]
 

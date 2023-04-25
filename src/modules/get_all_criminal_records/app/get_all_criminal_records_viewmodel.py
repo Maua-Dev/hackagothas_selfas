@@ -10,8 +10,7 @@ class GetAllCriminalRecordsViewModel:
     danger_score: int
     criminal: Criminal
 
-
-    def __init__(self, list_criminal_records : list[CriminalRecord]) -> None:
+    def __init__(self, list_criminal_records: list[CriminalRecord]) -> None:
         self.list = list_criminal_records
 
     def to_dict(self):
@@ -24,6 +23,6 @@ class GetAllCriminalRecordsViewModel:
                     "danger_score": item.danger_score,
                     "criminal": item.criminal.to_dict()
                 },
-                "message": "Criminal record was created"
+                "message": "Record was retrieved"
             })
         return array

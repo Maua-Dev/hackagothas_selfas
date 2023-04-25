@@ -1,8 +1,6 @@
-import json
 
 from src.modules.get_criminal_record_by_id.get_criminal_record_by_id_presenter import \
     get_criminal_record_by_id_presenter
-from src.shared.domain.enums.type_crime_enum import TYPE_CRIME
 from src.shared.helpers.external_interfaces.http_models import HttpResponse
 
 
@@ -28,14 +26,18 @@ class Test_GetCriminalRecordByIdPresenter:
                     'description': 'palhaco',
                     'gender': 'NON_BINARY',
                     'favorite_region': 'WAYNE_TOWER',
-                    'power': 'risadinha'
+                    'power': 'risadinha',
+                    'crime':{
+                      'id':'124',
+                      'type_crime':'DOMESTIC_VIOLENCE'
+                   }
                 }
             },
             "message": "the criminal record was retrieved successfully"
         }
 
-        assert response["status_code"] == 200
-        assert json.loads(response["body"]) == expect
+        assert response.status_code == 200
+        assert response.body == expect
 
     def test_get_criminal_record_presenter_should_return_404(self):
         event = {
@@ -51,5 +53,5 @@ class Test_GetCriminalRecordByIdPresenter:
             body="No items found for Criminal Record ID",
             headers={})
 
-        assert response["status_code"] == 404
-        assert json.loads(response["body"]) == expect.body
+        assert response.status_code == 404
+        assert response.body == expect.body
