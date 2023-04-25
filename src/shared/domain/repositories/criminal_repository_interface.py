@@ -6,3 +6,7 @@ class ICriminalRepository(ABC):
     @abstractmethod
     def create_criminal(self) -> Criminal:
         pass
+
+    @abstractmethod
+    def delete_criminal(self) -> Criminal:
+        pass
