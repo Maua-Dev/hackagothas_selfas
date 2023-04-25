@@ -51,7 +51,7 @@ class CreateRecordController:
             if request.data.get("criminal_crimes_type") is None:
                 raise MissingParameters("criminal_crimes_type")
 
-            crimes_list = Crime(
+            crime = Crime(
                 request.data.get("criminal_crimes_id"),
                 TYPE_CRIME(request.data.get("criminal_crimes_type"))
             )
@@ -63,7 +63,7 @@ class CreateRecordController:
                 GENDER(request.data.get("criminal_gender")),
                 FAVORITE_REGION(request.data.get("criminal_favorite_region")),
                 request.data.get("criminal_powers"),
-                crimes_list
+                crime
             )
 
             criminal_record = CriminalRecord(request.data.get("record_id"),
