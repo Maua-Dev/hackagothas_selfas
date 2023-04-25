@@ -15,8 +15,10 @@ class CriminalRecordRepositoryMock(ICriminalRecordRepository):
     criminals_list: list[Criminal]
 
     def __init__(self):
+
         repo_criminal = CriminalRepositoryMock()
         self.criminals_list = repo_criminal.criminals_list
+        
         self.criminal_records_list = [
             CriminalRecord(id="jdiqhihq",
                            is_in_jail=False, danger_score=94, criminal=self.criminals_list[0]),

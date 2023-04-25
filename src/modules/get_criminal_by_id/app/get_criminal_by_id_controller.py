@@ -8,7 +8,7 @@ from src.shared.helpers.external_interfaces.http_codes import BadRequest, OK, In
 
 
 class GetCriminalByIdController:
-    def __init__(self, get_criminal_usecase) -> GetCriminalByIdUsecase:
+    def __init__(self, get_criminal_usecase : GetCriminalByIdUsecase):
         self.get_criminal_usecase = get_criminal_usecase
 
     def __call__(self, request : IRequest):
