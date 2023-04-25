@@ -17,11 +17,13 @@ def create_criminal_record(data: dict = None):
     return response
 
 
-@app.post("/get_criminal_record_by_id/") #Todo: Isso aqui deveria ser um get
-def get_criminal_record_by_id(data: dict = None):
+@app.get("/get_criminal_record_by_id/")
+def get_criminal_record_by_id(record_id = None):
     event = {
-        "body": {
-            k: str(v) for k, v in data.items()
+        "body":{},
+        "headers": {},
+        "query_params": {
+            "criminal_record_id": record_id
         }
     }
     response = get_criminal_record_by_id_presenter(event, None)
