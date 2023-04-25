@@ -28,9 +28,8 @@ class Test_CreateCriminalRecordViewmodel:
         assert response["criminal_record"]["criminal"]["gender"] == "MALE"
         assert response["criminal_record"]["criminal"]["favorite_region"] == "CITY_HALL"
         assert response["criminal_record"]["criminal"]["power"] == "Os mesmos do miranha"
-        # assert response["criminal_record"]["criminal"]["crime"] == criminalRecord.criminal.crime.to_dict()
-        assert response['criminal_record']['criminal']['crime_id'] == "42"
-        assert response['criminal_record']['criminal']['crime_type_crime'] == "MURDER"
+        assert response['criminal_record']['criminal']['crime']['id'] == "42"
+        assert response['criminal_record']['criminal']['crime']['type_crime'] == "MURDER"
 
         print(response['criminal_record']['criminal'])
         assert response["message"] == "Criminal record was created"

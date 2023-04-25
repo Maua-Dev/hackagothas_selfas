@@ -21,7 +21,6 @@ class CreateCriminalRecordViewmodel:
                 "record_id": self.id,
                 "is_in_jail": self.is_in_jail,
                 "danger_score": self.danger_score,
-                # "criminal": self.criminal.to_dict()
                 "criminal": {
                     "name": self.criminal.name,
                     "id": self.criminal.criminal_id,
@@ -29,9 +28,10 @@ class CreateCriminalRecordViewmodel:
                     "gender": self.criminal.gender.value,
                     "favorite_region": self.criminal.favorite_region.value,
                     "power": self.criminal.powers,
-                    # "crime": self.criminal.crime.to_dict()
-                    "crime_id": self.criminal.crime.id,
-                    "crime_type_crime":self.criminal.crime.type_crime.value
+                    "crime": {
+                        "id":self.criminal.crime.id,
+                        "type_crime":self.criminal.crime.type_crime.value
+                    }
                 }
             },
             "message": "Criminal record was created"

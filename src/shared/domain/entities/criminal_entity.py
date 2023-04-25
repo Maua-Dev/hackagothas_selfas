@@ -60,7 +60,7 @@ class Criminal(ABC):
             "gender": self.gender.value,
             "favorite_region": self.favorite_region.value,
             "power": self.powers,
-            # "crime": self.crime.to_dict()
-            "crime_id": self.crime.id,
-            "crime_type_crime":self.crime.type_crime.value
+            "crime": self.crime.to_dict()
+            # "crime_id": self.crime.id,
+            # "type_crime":self.crime.type_crime.value
         }
