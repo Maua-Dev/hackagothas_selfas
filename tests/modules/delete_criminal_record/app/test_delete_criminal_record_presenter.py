@@ -14,9 +14,8 @@ class TestDeleteCriminalRecordPresenter:
         response = delete_criminal_record_presenter(event, None)
 
         expect = {
-            "criminal_record": {
+            "criminal_record":  {
                 "record_id": "jdiqhihq",
-                "type_crime": TYPE_CRIME.HATER_OF_INTERESTELLAR.value,
                 "is_in_jail": False,
                 "danger_score": 94,
                 "criminal": {
@@ -25,14 +24,18 @@ class TestDeleteCriminalRecordPresenter:
                     'description': 'palhaco',
                     'gender': 'NON_BINARY',
                     'favorite_region': 'WAYNE_TOWER',
-                    'power': 'risadinha'
+                    'power': 'risadinha',
+                    'crime':{
+                      'id':'124',
+                      'type_crime':'DOMESTIC_VIOLENCE'
+                   }
                 }
             },
             "message": "Criminal record was deleted successfully"
         }
 
-        assert response["status_code"] == 200
-        assert json.loads(response["body"]) == expect
+        assert response.status_code == 200
+        assert response.body == expect
 
     def test_get_criminal_record_presenter_should_return_404(self):
         event = {
@@ -48,5 +51,5 @@ class TestDeleteCriminalRecordPresenter:
             body="No items found for Criminal Record ID",
             headers={})
 
-        assert response["status_code"] == 404
-        assert json.loads(response["body"]) == expect.body
+        assert response.status_code == 404
+        assert response.body == expect.body

@@ -13,7 +13,7 @@ class TestDeleteCriminalRecordController:
         controller = DeleteCriminalRecordController(usecase)
 
         request = HttpRequest(body={
-            "criminal_record_id": repo.criminal_records[0].id
+            "criminal_record_id": repo.criminal_records_list[0].id
         })
 
         response = controller(request)

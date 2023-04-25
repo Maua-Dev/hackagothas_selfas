@@ -20,4 +20,4 @@ def delete_criminal_record_presenter(event, context):
         headers=response.headers
     )
 
-    return httpResponse.to_dict()
+    return httpResponse

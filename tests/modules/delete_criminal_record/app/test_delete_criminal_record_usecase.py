@@ -10,8 +10,12 @@ class TestDeleteCriminalRecordUsecase:
 
         id_to_search = "jdiqhihq"
 
-        expected = repo.criminal_records[0]
+        expected = repo.criminal_records_list[0]
+        repo_list_length_before = len(repo.criminal_records_list)
 
         response = usecase(id_to_search)
 
+        repo_list_length_after = len(repo.criminal_records_list)
+
         assert response == expected
+        assert repo_list_length_after == repo_list_length_before - 1
